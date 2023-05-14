@@ -4,7 +4,7 @@ import androidx.compose.ui.res.stringResource
 import com.example.fitnessmotivationtips.R
 
 object DailyTipsDataSource{
-    val DailyTips = listOf(
+    val dailyTips = listOf(
         DailyTip(
             day = R.string.day1,
             image = R.drawable.pexels_victor_freitas_2261477,

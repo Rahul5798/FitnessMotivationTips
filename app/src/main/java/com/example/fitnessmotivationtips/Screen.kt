@@ -2,12 +2,21 @@ package com.example.fitnessmotivationtips
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,6 +28,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.fitnessmotivationtips.model.DailyTip
+import com.example.fitnessmotivationtips.model.DailyTipsDataSource
+import com.example.fitnessmotivationtips.model.DailyTipsDataSource.dailyTips
+import com.example.fitnessmotivationtips.ui.theme.FitnessMotivationTipsTheme
 
 @Composable
 fun DailyTipCard(dailyTip: DailyTip, modifier: Modifier = Modifier){
@@ -46,13 +58,41 @@ fun DailyTipCard(dailyTip: DailyTip, modifier: Modifier = Modifier){
         }
     }
 }
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FitnessMotivationTopBar(modifier: Modifier = Modifier) {
+    CenterAlignedTopAppBar(
+        title = {
+            Row() {
+                Text(text = stringResource(id = R.string.app_name),
+                style = MaterialTheme.typography.displayLarge,
+                modifier = modifier.padding(8.dp)
+                )
+            }
+        },
+        modifier = modifier
+    )
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FitnessMotivatioTipsApp(){
+    Scaffold(
+        topBar = { FitnessMotivationTopBar() }
+    ) {
+        it->
+        LazyColumn(contentPadding = it){
+            items(dailyTips){
+                dailyTip -> DailyTipCard(dailyTip = dailyTip)
+            }
+        }
+    }
+
+}
+
+
 
 @Composable
 @Preview
 fun Preview(){
-    DailyTipCard(dailyTip = DailyTip(
-        day = R.string.day1,
-        image = R.drawable.pexels_victor_freitas_2261477,
-        tip = R.string.tip1
-    ))
+    FitnessMotivatioTipsApp()
 }
