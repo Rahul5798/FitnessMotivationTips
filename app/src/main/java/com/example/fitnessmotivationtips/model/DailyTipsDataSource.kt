@@ -3,6 +3,7 @@ package com.example.fitnessmotivationtips.model
 import androidx.compose.ui.res.stringResource
 import com.example.fitnessmotivationtips.R
 
+
 object DailyTipsDataSource{
     val dailyTips = listOf(
         DailyTip(
@@ -130,6 +131,6 @@ object DailyTipsDataSource{
             day = R.string.day30,
             image = R.drawable.pexels_victor_freitas_949130,
             tip = R.string.tip30
-        ),
+        )
     )
 }
