@@ -9,8 +9,8 @@ I have added tips using ChatGPT
 All images are by Victor Freitas on Pexels
 Here are some Screenshots of the App.
 ## App in Dark Mode
-![img.png](img.png)
+<img src="https://github.com/Rahul5798/FitnessMotivationTips/blob/master/img.png" width="400"/>
 
 
 ## App in Light Mode
-![img_1.png](img_1.png)
+<img src="https://github.com/Rahul5798/FitnessMotivationTips/blob/master/img_1.png" width="400"/>
